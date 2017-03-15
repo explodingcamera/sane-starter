@@ -8,8 +8,10 @@ const routes = (
 	<Switch>
 		<Route path="/">
 			<App>
-				<Route exact path="/" component={asyncComponent(import('pages/home'))}/>
-				{/* <Route exact path="/somepath" component={asyncComponent(import('pages/somePage'))}/> */}
+				<div>
+					<Route exact path="/" component={asyncComponent(import('pages/home'))}/>
+					{/* <Route exact path="/somepath" component={asyncComponent(import('pages/somePage'))}/> */}
+				</div>
 			</App>
 		</Route>
 	</Switch>
