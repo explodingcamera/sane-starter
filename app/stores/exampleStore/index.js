@@ -14,6 +14,9 @@ class ExampleStore {
 	}
 }
 
+// const persistStore = create({
+// 	storage: localStorage
+// });
 // const exampleStore = persistStore('example', new ExampleStore())
 const exampleStore = new ExampleStore();
 export default exampleStore;

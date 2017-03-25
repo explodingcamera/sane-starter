@@ -80,20 +80,24 @@ export default {
 		},
 		{
 			test: /\.css$/,
-			exclude: [/react-image-gallery/],
+			exclude: [/global.css$/],
 			loader:	prod ? ExtractTextPlugin.extract({
 				fallback: 'style-loader!css-loader?modules&importLoaders=1!postcss-loader',
 				use: 'css-loader?modules&importLoaders=1!postcss-loader'
 			}) : 'style-loader!css-loader?modules&importLoaders=1&localIdentName="[path][name]__[local]--[hash:base64:5]"!postcss-loader'
+		},
+		{
+			test: /\.css$/,
+			include: [/global.css$/],
+			loader:	prod ? ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: 'css-loader?importLoaders=1!postcss-loader'
+			}) : 'style-loader!css-loader?importLoaders=1&localIdentName="[path][name]__[local]--[hash:base64:5]"!postcss-loader'
+		},
+		{
+			test: /\.(eot|svg|ttf|woff|woff2)$/,
+			loader: 'file-loader?name=build/fonts/[name].[ext]'
 		}
-		// {
-		// 	test: /\.css$/,
-		// 	include: [/library-that-doesnt-support-css-modules/],
-		// 	loader:	prod ? ExtractTextPlugin.extract({
-		// 		fallback: 'style-loader',
-		// 		use: 'css-loader?importLoaders=1!postcss-loader'
-		// 	}) : 'style-loader!css-loader?importLoaders=1&localIdentName="[path][name]__[local]--[hash:base64:5]"!postcss-loader'
-		// }
 		]
 	},
 	devtool: 'inline-source-map',

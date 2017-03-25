@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import 'css/main.css';
+import 'css/global.css';
+
+import stores from 'stores';
 
 import Router from 'pages/Router';
 import routes from 'pages/routes';
@@ -16,7 +18,7 @@ AppContainer.id = 'app';
 document.body.appendChild(AppContainer);
 
 ReactDOM.render(
-	<Router>
+	<Router stores={stores}>
 		{routes}
 	</Router>,
 	AppContainer
